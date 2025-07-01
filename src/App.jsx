@@ -2,9 +2,7 @@ import { Route, BrowserRouter as Router, Routes, useLocation } from 'react-route
 import { SearchProvider } from './components/context/SearchContext/SearchContext';
 import { LanguageProvider } from './components/context/LanguageContext/LanguageContext'
 import { TransitionProvider } from './components/context/TransitionContext/TransitionContext';
-import { useEffect } from 'react';
 import { Toaster } from 'sonner'
-import { forceChakraDarkTheme } from './utils/utils';
 import { toastStyles } from './utils/customTheme';
 
 import DisplayHeader from './components/landing/DisplayHeader/DisplayHeader';
@@ -65,10 +63,6 @@ function AppContent() {
 }
 
 export default function App() {
-  useEffect(() => {
-    forceChakraDarkTheme();
-  }, []);
-
   return (
     <Router>
       <AppContent />
