@@ -1,7 +1,10 @@
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './css/personal-optimized.css'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import PersonalApp from './PersonalApp';
+import './css/personal-optimized.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <App />
-)
+  <React.StrictMode>
+    <PersonalApp />
+  </React.StrictMode>
+);
