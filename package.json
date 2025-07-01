@@ -5,15 +5,12 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"build": "npm run build:registry && vite build",
-		"build:registry": "concurrently -p \"[{name}]\" -n \"default,tailwind,ts-default,ts-tailwind,readmes\" \"npm run build:registry:default\" \"npm run build:registry:tailwind\" \"npm run build:registry:ts-default\" \"npm run build:registry:ts-tailwind\" \"node ./scripts/createRegistryReadmes.js\"",
-		"build:registry:default": "jsrepo build --dirs ./src/content --output-dir ./public/default",
-		"build:registry:tailwind": "jsrepo build --dirs ./src/tailwind --output-dir ./public/tailwind",
-		"build:registry:ts-default": "jsrepo build --dirs ./src/ts-default --output-dir ./public/ts/default",
-		"build:registry:ts-tailwind": "jsrepo build --dirs ./src/ts-tailwind --output-dir ./public/ts/tailwind",
-		"new:component": "node scripts/generateComponent.js",
+		"build": "vite build",
+		"build:cf": "vite build",
+		"preview": "vite preview",
 		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-		"preview": "vite preview"
+		"build:old-registry": "npm run build:registry && vite build",
+		"build:registry": "concurrently -p \"[{name}]\" -n \"default,tailwind,ts-default,ts-tailwind,readmes\" \"npm run build:registry:default\" \"npm run build:registry:tailwind\" \"npm run build:registry:ts-default\" \"npm run build:registry:ts-tailwind\" \"node ./scripts/createRegistryReadmes.js\""
 	},
 	"dependencies": {
 		"@chakra-ui/react": "^3.20.0",
