@@ -12,7 +12,7 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="border-b border-gray-100">
+      <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-gray-100 z-50 transition-all duration-300">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/" className="w-10 h-10 rounded-full overflow-hidden block">
             <Image 
@@ -33,7 +33,7 @@ export default function BlogPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="max-w-6xl mx-auto px-4 py-12 md:py-16">
+      <section className="max-w-6xl mx-auto px-4 pt-24 md:pt-32 pb-12 md:pb-16">
         <div className="text-center mb-12 md:mb-16">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">技术博客</h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">

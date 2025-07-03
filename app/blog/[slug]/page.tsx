@@ -30,7 +30,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="border-b border-gray-100 sticky top-0 bg-white/80 backdrop-blur-sm z-10">
+      <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-gray-100 z-50 transition-all duration-300">
         <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/" className="w-10 h-10 rounded-full overflow-hidden block">
             <Image 
@@ -59,7 +59,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
       </header>
 
       {/* Hero Image */}
-      <div className="w-full h-48 md:h-64 lg:h-96 bg-gray-100 overflow-hidden">
+      <div className="w-full h-48 md:h-64 lg:h-96 bg-gray-100 overflow-hidden mt-20">
         <Image
           src={article.image}
           alt={article.title}

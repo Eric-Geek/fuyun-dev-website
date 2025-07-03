@@ -17,7 +17,7 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-white scroll-smooth">
       {/* Header */}
-      <header className="border-b border-gray-100 relative">
+      <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-gray-100 z-50 transition-all duration-300">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="#hero" className="w-10 h-10 rounded-full overflow-hidden block">
             <Image 
@@ -67,7 +67,7 @@ export default function Portfolio() {
         
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-lg z-50">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-lg z-40">
             <nav className="px-4 py-4 space-y-4">
               <Link 
                 href="#hero" 
@@ -110,7 +110,7 @@ export default function Portfolio() {
       </header>
 
       {/* Hero Section */}
-      <section id="hero" className="max-w-6xl mx-auto px-4 py-12 md:py-20">
+      <section id="hero" className="max-w-6xl mx-auto px-4 pt-24 md:pt-32 pb-12 md:pb-20">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 lg:gap-20">
           <div className="flex-1 max-w-2xl">
             <div className="flex items-center space-x-2 mb-6">
@@ -121,17 +121,17 @@ export default function Portfolio() {
             <h2 className="text-xl md:text-2xl text-gray-600 mb-6 md:mb-8">Tech Writer</h2>
             <p className="text-gray-600 mb-8 md:mb-10 max-w-lg leading-relaxed text-base md:text-lg">
               专注于技术写作和内容创作，运用现代化的技术工具和平台分享编程知识与经验。拥有
-              丰富的技术背景和写作经验，致力于创造有价值的技术内容和优质的学习资源。
+            丰富的技术背景和写作经验，致力于创造有价值的技术内容和优质的学习资源。
             </p>
             <div className="flex flex-wrap items-center gap-3 mb-8 md:mb-10">
               <Badge variant="secondary" className="bg-gray-100 text-gray-700 px-3 py-1 md:px-4 md:py-2">
-                React
+                Geek
               </Badge>
               <Badge variant="secondary" className="bg-gray-100 text-gray-700 px-3 py-1 md:px-4 md:py-2">
-                Vue
+                AI
               </Badge>
               <Badge variant="secondary" className="bg-gray-100 text-gray-700 px-3 py-1 md:px-4 md:py-2">
-                TypeScript
+                Tech
               </Badge>
             </div>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
