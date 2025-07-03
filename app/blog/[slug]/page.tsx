@@ -59,7 +59,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
       </header>
 
       {/* Hero Image */}
-      <div className="w-full h-64 md:h-96 bg-gray-100 overflow-hidden">
+      <div className="w-full h-48 md:h-64 lg:h-96 bg-gray-100 overflow-hidden">
         <Image
           src={article.image}
           alt={article.title}
@@ -70,9 +70,9 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
       </div>
 
       {/* Article Header */}
-      <article className="max-w-4xl mx-auto px-4 py-8">
-        <div className="mb-8">
-          <div className="flex flex-wrap items-center gap-4 mb-6">
+      <article className="max-w-4xl mx-auto px-4 py-6 md:py-8">
+        <div className="mb-6 md:mb-8">
+          <div className="flex flex-wrap items-center gap-3 md:gap-4 mb-4 md:mb-6">
             <div className="flex items-center text-sm text-gray-500">
               <Calendar className="w-4 h-4 mr-1" />
               {article.date}
@@ -87,11 +87,11 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             </Button>
           </div>
           
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 leading-tight">
             {article.title}
           </h1>
           
-          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed">
             {article.excerpt}
           </p>
           

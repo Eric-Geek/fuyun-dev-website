@@ -33,19 +33,19 @@ export default function BlogPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
-        <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold mb-6">技术博客</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+      <section className="max-w-6xl mx-auto px-4 py-12 md:py-16">
+        <div className="text-center mb-12 md:mb-16">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">技术博客</h1>
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
             分享前端开发、技术写作和工具使用的心得体会，记录技术成长的点点滴滴
           </p>
         </div>
 
         {/* Featured Article */}
-        <div className="mb-16">
-          <div className="flex items-center mb-8">
-            <div className="w-1 h-8 bg-blue-500 mr-4"></div>
-            <h2 className="text-2xl font-bold">精选文章</h2>
+        <div className="mb-12 md:mb-16">
+          <div className="flex items-center mb-6 md:mb-8">
+            <div className="w-1 h-6 md:h-8 bg-blue-500 mr-3 md:mr-4"></div>
+            <h2 className="text-xl md:text-2xl font-bold">精选文章</h2>
           </div>
           <Card className="overflow-hidden hover:shadow-xl transition-shadow cursor-pointer">
             <Link href={`/blog/${articles[0].slug}`}>
@@ -61,7 +61,7 @@ export default function BlogPage() {
                     />
                   </div>
                 </div>
-                <div className="md:w-1/2 p-8">
+                <div className="md:w-1/2 p-6 md:p-8">
                   <div className="flex items-center space-x-4 mb-4">
                     <Badge variant="secondary" className="bg-blue-100 text-blue-700">
                       精选
@@ -94,12 +94,12 @@ export default function BlogPage() {
         </div>
 
         {/* Articles Grid */}
-        <div className="mb-16">
-          <div className="flex items-center mb-8">
-            <div className="w-1 h-8 bg-green-500 mr-4"></div>
-            <h2 className="text-2xl font-bold">最新文章</h2>
+        <div className="mb-12 md:mb-16">
+          <div className="flex items-center mb-6 md:mb-8">
+            <div className="w-1 h-6 md:h-8 bg-green-500 mr-3 md:mr-4"></div>
+            <h2 className="text-xl md:text-2xl font-bold">最新文章</h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {articles.slice(1).map((article) => (
               <Card key={article.id} className="group cursor-pointer hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <Link href={`/blog/${article.slug}`}>
@@ -152,7 +152,7 @@ export default function BlogPage() {
 
         {/* Load More */}
         <div className="text-center">
-          <Button variant="outline" className="px-8 py-3">
+          <Button variant="outline" className="px-6 md:px-8 py-3">
             加载更多文章
           </Button>
         </div>

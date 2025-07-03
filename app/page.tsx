@@ -1,6 +1,6 @@
 "use client"
 
-import { Moon, Code, ExternalLink, MessageCircle, Github, Mail, ArrowUp } from "lucide-react"
+import { Moon, Code, ExternalLink, MessageCircle, Github, Mail, ArrowUp, Menu, X } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -8,14 +8,16 @@ import { Progress } from "@/components/ui/progress"
 import Image from "next/image"
 import Link from "next/link"
 import { getLatestArticles } from "@/lib/articles"
+import { useState } from "react"
 
 export default function Portfolio() {
   const latestArticles = getLatestArticles(9)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   
   return (
     <div className="min-h-screen bg-white scroll-smooth">
       {/* Header */}
-      <header className="border-b border-gray-100">
+      <header className="border-b border-gray-100 relative">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="#hero" className="w-10 h-10 rounded-full overflow-hidden block">
             <Image 
@@ -26,6 +28,8 @@ export default function Portfolio() {
               className="w-full h-full object-cover"
             />
           </Link>
+          
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link href="#hero" className="text-gray-600 hover:text-black transition-colors">
               首页
@@ -43,50 +47,106 @@ export default function Portfolio() {
               联系
             </Link>
           </nav>
-          <Button variant="ghost" size="icon" className="rounded-full">
-            <Moon className="w-5 h-5" />
-          </Button>
+          
+          <div className="flex items-center space-x-2">
+            <Button variant="ghost" size="icon" className="rounded-full">
+              <Moon className="w-5 h-5" />
+            </Button>
+            
+            {/* Mobile Menu Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden rounded-full"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </Button>
+          </div>
         </div>
+        
+        {/* Mobile Navigation */}
+        {mobileMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-lg z-50">
+            <nav className="px-4 py-4 space-y-4">
+              <Link 
+                href="#hero" 
+                className="block text-gray-600 hover:text-black transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                首页
+              </Link>
+              <Link 
+                href="#about" 
+                className="block text-gray-600 hover:text-black transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                关于
+              </Link>
+              <Link 
+                href="#portfolio" 
+                className="block text-gray-600 hover:text-black transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                作品
+              </Link>
+              <Link 
+                href="#blog" 
+                className="block text-gray-600 hover:text-black transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                文章
+              </Link>
+              <Link 
+                href="#contact" 
+                className="block text-gray-600 hover:text-black transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                联系
+              </Link>
+            </nav>
+          </div>
+        )}
       </header>
 
       {/* Hero Section */}
-      <section id="hero" className="max-w-6xl mx-auto px-4 py-20">
-        <div className="flex items-center justify-between">
+      <section id="hero" className="max-w-6xl mx-auto px-4 py-12 md:py-20">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 lg:gap-20">
           <div className="flex-1 max-w-2xl">
             <div className="flex items-center space-x-2 mb-6">
               <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
               <span className="text-sm text-gray-600">你好，我是</span>
             </div>
-            <h1 className="text-7xl font-bold mb-6">Fuyun</h1>
-            <h2 className="text-2xl text-gray-600 mb-8">Tech Writer</h2>
-            <p className="text-gray-600 mb-10 max-w-lg leading-relaxed text-lg">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">Fuyun</h1>
+            <h2 className="text-xl md:text-2xl text-gray-600 mb-6 md:mb-8">Tech Writer</h2>
+            <p className="text-gray-600 mb-8 md:mb-10 max-w-lg leading-relaxed text-base md:text-lg">
               专注于技术写作和内容创作，运用现代化的技术工具和平台分享编程知识与经验。拥有
               丰富的技术背景和写作经验，致力于创造有价值的技术内容和优质的学习资源。
             </p>
-            <div className="flex items-center space-x-4 mb-10">
-              <Badge variant="secondary" className="bg-gray-100 text-gray-700 px-4 py-2">
+            <div className="flex flex-wrap items-center gap-3 mb-8 md:mb-10">
+              <Badge variant="secondary" className="bg-gray-100 text-gray-700 px-3 py-1 md:px-4 md:py-2">
                 React
               </Badge>
-              <Badge variant="secondary" className="bg-gray-100 text-gray-700 px-4 py-2">
+              <Badge variant="secondary" className="bg-gray-100 text-gray-700 px-3 py-1 md:px-4 md:py-2">
                 Vue
               </Badge>
-              <Badge variant="secondary" className="bg-gray-100 text-gray-700 px-4 py-2">
+              <Badge variant="secondary" className="bg-gray-100 text-gray-700 px-3 py-1 md:px-4 md:py-2">
                 TypeScript
               </Badge>
             </div>
-            <div className="flex items-center space-x-4">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <Link href="#contact">
-                <Button className="bg-black text-white hover:bg-gray-800 px-6 py-3">联系我</Button>
+                <Button className="bg-black text-white hover:bg-gray-800 px-6 py-3 w-full sm:w-auto">联系我</Button>
               </Link>
               <Link href="#portfolio">
-                <Button variant="outline" className="px-6 py-3 bg-transparent">
+                <Button variant="outline" className="px-6 py-3 bg-transparent w-full sm:w-auto">
                   查看项目
                 </Button>
               </Link>
             </div>
           </div>
-          <div className="ml-20">
-            <Card className="w-72 h-80 bg-gradient-to-br from-slate-50 to-gray-100 border-0 relative overflow-hidden shadow-xl">
+          <div className="flex justify-center lg:justify-end">
+            <Card className="w-64 h-72 md:w-72 md:h-80 bg-gradient-to-br from-slate-50 to-gray-100 border-0 relative overflow-hidden shadow-xl">
               <CardContent className="p-8 h-full flex flex-col justify-between">
                 <div className="flex justify-end">
                   <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
@@ -127,9 +187,9 @@ export default function Portfolio() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="max-w-6xl mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold mb-12">关于我</h2>
-        <div className="grid md:grid-cols-2 gap-12">
+      <section id="about" className="max-w-6xl mx-auto px-4 py-12 md:py-16">
+        <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12">关于我</h2>
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           <div>
             <h3 className="text-xl font-semibold mb-4">专业领域</h3>
             <p className="text-gray-600 leading-relaxed">
@@ -176,9 +236,9 @@ export default function Portfolio() {
       </section>
 
       {/* Portfolio Section */}
-      <section id="portfolio" className="max-w-6xl mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold mb-12">个人作品</h2>
-        <div className="grid md:grid-cols-3 gap-8">
+      <section id="portfolio" className="max-w-6xl mx-auto px-4 py-12 md:py-16">
+        <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12">个人作品</h2>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           <Card className="group cursor-pointer hover:shadow-lg transition-shadow">
             <CardContent className="p-0">
               <div className="aspect-video bg-gray-100 rounded-t-lg overflow-hidden">
@@ -310,14 +370,14 @@ export default function Portfolio() {
       </section>
 
       {/* Blog Section */}
-      <section id="blog" className="max-w-6xl mx-auto px-4 py-16">
-        <div className="flex items-center justify-between mb-12">
-          <h2 className="text-3xl font-bold">最新博客</h2>
-          <Link href="/blog" className="text-blue-600 hover:underline flex items-center">
+      <section id="blog" className="max-w-6xl mx-auto px-4 py-12 md:py-16">
+        <div className="flex items-center justify-between mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold">最新博客</h2>
+          <Link href="/blog" className="text-blue-600 hover:underline flex items-center text-sm md:text-base">
             更多 <ExternalLink className="w-4 h-4 ml-1" />
           </Link>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {latestArticles.map((article) => (
             <Card key={article.id} className="cursor-pointer hover:shadow-lg transition-shadow">
               <CardContent className="p-6">
@@ -341,13 +401,13 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="max-w-6xl mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold mb-6">联系方式</h2>
-        <p className="text-gray-600 mb-12 max-w-2xl">
+      <section id="contact" className="max-w-6xl mx-auto px-4 py-12 md:py-16">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6">联系方式</h2>
+        <p className="text-gray-600 mb-8 md:mb-12 max-w-2xl text-sm md:text-base">
           无论您是想讨论项目合作、技术咨询，还是单纯想交流技术话题，都欢迎随时联系我。
         </p>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           <Card className="p-8">
             <h3 className="text-xl font-semibold mb-4">让我们开始合作</h3>
             <p className="text-gray-600 mb-6">
@@ -413,7 +473,7 @@ export default function Portfolio() {
                 </div>
                 <div>
                   <h4 className="font-medium">Proofreading AI</h4>
-                  <p className="text-sm text-gray-600">免费AI校对工具，提供语法检查和写作优化</p>
+                  <p className="text-sm text-gray-600">免费AI校对工具</p>
                 </div>
               </a>
             </div>
