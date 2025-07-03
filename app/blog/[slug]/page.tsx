@@ -1,5 +1,3 @@
-"use client"
-
 import { ArrowLeft, Calendar, Clock, Tag, Share2, BookOpen } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -8,6 +6,13 @@ import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import { getArticleBySlug, articles } from "@/lib/articles"
+
+// 生成静态参数
+export function generateStaticParams() {
+  return articles.map((article) => ({
+    slug: article.slug,
+  }))
+}
 
 interface BlogPostPageProps {
   params: {
