@@ -418,75 +418,105 @@ export default function Portfolio() {
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           <Card className="p-8">
-            <h3 className="text-xl font-semibold mb-4">让我们开始合作</h3>
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-xl font-semibold">联系合作</h3>
+              <span className="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded-full">随时欢迎</span>
+            </div>
             <p className="text-gray-600 mb-6">
               我很乐意听取新项目和机会的建议。无论是全职机会、自由职业项目还是技术咨询，都欢迎与我联系。
             </p>
-            <div className="flex items-center space-x-4">
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <MessageCircle className="w-5 h-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <Github className="w-5 h-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <Mail className="w-5 h-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <ExternalLink className="w-5 h-5" />
-              </Button>
+            
+            <div className="space-y-3 mb-6">
+              <div className="flex items-center space-x-3 p-3 rounded-xl bg-gray-50">
+                <MessageCircle className="w-5 h-5 text-blue-600" />
+                <div>
+                  <p className="text-sm font-medium">技术讨论</p>
+                  <p className="text-xs text-gray-600">分享技术见解与经验</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3 p-3 rounded-xl bg-gray-50">
+                <Github className="w-5 h-5 text-gray-800" />
+                <div>
+                  <p className="text-sm font-medium">项目合作</p>
+                  <p className="text-xs text-gray-600">开源项目与技术开发</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3 p-3 rounded-xl bg-gray-50">
+                <Mail className="w-5 h-5 text-green-600" />
+                <div>
+                  <p className="text-sm font-medium">商务咨询</p>
+                  <p className="text-xs text-gray-600">技术写作与内容创作</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-6 pt-6 border-t border-gray-100">
+              <p className="text-xs text-gray-500 text-center">
+                通过任意方式联系 · 24小时内回复
+              </p>
             </div>
           </Card>
 
-          <div>
+          <Card className="p-8">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-semibold">友情链接</h3>
-              <span className="text-sm text-gray-500">共 2 个友链</span>
+              <span className="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded-full">2 个友链</span>
             </div>
-            <div className="space-y-4">
+            <p className="text-gray-600 mb-6">
+              优质的技术网站和工具推荐，与我一起探索技术世界的精彩内容。
+            </p>
+            <div className="space-y-3">
               <a 
                 href="https://www.glbgpt.com/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
+                className="group flex items-center space-x-4 p-4 rounded-xl hover:bg-gray-50 transition-all duration-300 border border-transparent hover:border-gray-200 hover:shadow-sm"
               >
-                <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center bg-white border border-gray-200">
+                <div className="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 group-hover:scale-105 transition-transform">
                   <Image
                     src="/globalgpt-logo.svg"
                     alt="GlobalGPT Logo"
-                    width={32}
-                    height={32}
-                    className="w-8 h-8"
+                    width={24}
+                    height={24}
+                    className="w-6 h-6"
                   />
                 </div>
-                <div>
-                  <h4 className="font-medium">GlobalGPT</h4>
-                  <p className="text-sm text-gray-600">多合一AI平台</p>
+                <div className="flex-1">
+                  <h4 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">GlobalGPT</h4>
+                  <p className="text-sm text-gray-600">多合一AI平台，智能对话新体验</p>
                 </div>
+                <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" />
               </a>
 
               <a 
                 href="https://www.proofreadingai.org/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
+                className="group flex items-center space-x-4 p-4 rounded-xl hover:bg-gray-50 transition-all duration-300 border border-transparent hover:border-gray-200 hover:shadow-sm"
               >
-                <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center bg-white border border-gray-200">
+                <div className="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center bg-gradient-to-br from-green-50 to-green-100 border border-green-200 group-hover:scale-105 transition-transform">
                   <Image
                     src="/proofreading-logo.svg"
                     alt="Proofreading AI Logo"
-                    width={32}
-                    height={32}
-                    className="w-8 h-8"
+                    width={24}
+                    height={24}
+                    className="w-6 h-6"
                   />
                 </div>
-                <div>
-                  <h4 className="font-medium">Proofreading AI</h4>
-                  <p className="text-sm text-gray-600">免费AI校对工具</p>
+                <div className="flex-1">
+                  <h4 className="font-semibold text-gray-900 group-hover:text-green-600 transition-colors">Proofreading AI</h4>
+                  <p className="text-sm text-gray-600">免费AI校对工具，提升写作质量</p>
                 </div>
+                <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-green-600 transition-colors" />
               </a>
             </div>
-          </div>
+            
+            <div className="mt-6 pt-6 border-t border-gray-100">
+              <p className="text-xs text-gray-500 text-center">
+                欢迎优质网站交换友链 · 邮箱联系
+              </p>
+            </div>
+          </Card>
         </div>
       </section>
 
