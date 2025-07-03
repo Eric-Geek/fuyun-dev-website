@@ -6,6 +6,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import { getArticleBySlug, articles } from "@/lib/articles"
+import Squares from "@/components/ui/squares"
 
 // 生成静态参数
 export function generateStaticParams() {
@@ -28,7 +29,15 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white relative">
+      {/* Animated Background */}
+      <Squares 
+        speed={0.3}
+        squareSize={60}
+        direction="diagonal"
+        borderColor="rgba(156, 163, 175, 0.5)"
+        hoverFillColor="rgba(59, 130, 246, 0.1)"
+      />
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-gray-100 z-50 transition-all duration-300">
         <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -70,7 +79,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
       </div>
 
       {/* Article Header */}
-      <article className="max-w-4xl mx-auto px-4 py-6 md:py-8">
+      <article className="max-w-4xl mx-auto px-4 py-6 md:py-8 relative z-10">
         <div className="mb-6 md:mb-8">
           <div className="flex flex-wrap items-center gap-3 md:gap-4 mb-4 md:mb-6">
             <div className="flex items-center text-sm text-gray-500">

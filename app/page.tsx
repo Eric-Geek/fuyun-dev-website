@@ -9,15 +9,24 @@ import Image from "next/image"
 import Link from "next/link"
 import { getLatestArticles } from "@/lib/articles"
 import { useState } from "react"
+import Squares from "@/components/ui/squares"
 
 export default function Portfolio() {
   const latestArticles = getLatestArticles(9)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   
   return (
-    <div className="min-h-screen bg-white scroll-smooth">
+    <div className="min-h-screen bg-white scroll-smooth relative">
+      {/* Animated Background */}
+      <Squares 
+        speed={0.3}
+        squareSize={60}
+        direction="diagonal"
+        borderColor="rgba(156, 163, 175, 0.5)"
+        hoverFillColor="rgba(59, 130, 246, 0.1)"
+      />
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-gray-100 z-50 transition-all duration-300">
+      <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-gray-100 z-50 transition-all duration-300 relative">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="#hero" className="w-10 h-10 rounded-full overflow-hidden block">
             <Image 
@@ -110,7 +119,7 @@ export default function Portfolio() {
       </header>
 
       {/* Hero Section */}
-      <section id="hero" className="max-w-6xl mx-auto px-4 pt-24 md:pt-32 pb-12 md:pb-20">
+      <section id="hero" className="max-w-6xl mx-auto px-4 pt-24 md:pt-32 pb-12 md:pb-20 relative z-10">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 lg:gap-20">
           <div className="flex-1 max-w-2xl">
             <div className="flex items-center space-x-2 mb-6">
@@ -187,7 +196,7 @@ export default function Portfolio() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="max-w-6xl mx-auto px-4 py-12 md:py-16">
+      <section id="about" className="max-w-6xl mx-auto px-4 py-12 md:py-16 relative z-10">
         <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12">关于我</h2>
         <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           <div>
@@ -236,7 +245,7 @@ export default function Portfolio() {
       </section>
 
       {/* Portfolio Section */}
-      <section id="portfolio" className="max-w-6xl mx-auto px-4 py-12 md:py-16">
+      <section id="portfolio" className="max-w-6xl mx-auto px-4 py-12 md:py-16 relative z-10">
         <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12">个人作品</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           <Card className="group cursor-pointer hover:shadow-lg transition-shadow">
@@ -370,7 +379,7 @@ export default function Portfolio() {
       </section>
 
       {/* Blog Section */}
-      <section id="blog" className="max-w-6xl mx-auto px-4 py-12 md:py-16">
+      <section id="blog" className="max-w-6xl mx-auto px-4 py-12 md:py-16 relative z-10">
         <div className="flex items-center justify-between mb-8 md:mb-12">
           <h2 className="text-2xl md:text-3xl font-bold">最新博客</h2>
           <Link href="/blog" className="text-blue-600 hover:underline flex items-center text-sm md:text-base">
@@ -401,7 +410,7 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="max-w-6xl mx-auto px-4 py-12 md:py-16">
+      <section id="contact" className="max-w-6xl mx-auto px-4 py-12 md:py-16 relative z-10">
         <h2 className="text-2xl md:text-3xl font-bold mb-6">联系方式</h2>
         <p className="text-gray-600 mb-8 md:mb-12 max-w-2xl text-sm md:text-base">
           无论您是想讨论项目合作、技术咨询，还是单纯想交流技术话题，都欢迎随时联系我。
@@ -482,7 +491,7 @@ export default function Portfolio() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-100 py-8">
+      <footer className="border-t border-gray-100 py-8 relative z-10">
         <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
           <p className="text-gray-600 text-sm">© 2025 Designed By Fuyun</p>
           <Button

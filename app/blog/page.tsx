@@ -7,10 +7,19 @@ import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
 import Image from "next/image"
 import { articles } from "@/lib/articles"
+import Squares from "@/components/ui/squares"
 
 export default function BlogPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white relative">
+      {/* Animated Background */}
+      <Squares 
+        speed={0.3}
+        squareSize={60}
+        direction="diagonal"
+        borderColor="rgba(156, 163, 175, 0.5)"
+        hoverFillColor="rgba(59, 130, 246, 0.1)"
+      />
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-gray-100 z-50 transition-all duration-300">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -33,7 +42,7 @@ export default function BlogPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="max-w-6xl mx-auto px-4 pt-24 md:pt-32 pb-12 md:pb-16">
+      <section className="max-w-6xl mx-auto px-4 pt-24 md:pt-32 pb-12 md:pb-16 relative z-10">
         <div className="text-center mb-12 md:mb-16">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">技术博客</h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
