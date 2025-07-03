@@ -2,9 +2,38 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+  title: 'Fuyun - Tech Writer & Content Creator',
+  description: 'Fuyun的个人网站 - 专注于技术写作和内容创作，分享前端开发、全栈技术和开发工具的经验与见解',
+  keywords: ['技术写作', '前端开发', 'React', 'Vue', 'TypeScript', '技术博客', '内容创作'],
+  authors: [{ name: 'Fuyun' }],
+  creator: 'Fuyun',
+  publisher: 'Fuyun',
+  metadataBase: new URL('https://fuyun.dev'),
+  openGraph: {
+    title: 'Fuyun - Tech Writer & Content Creator',
+    description: '专注于技术写作和内容创作，分享编程知识与经验',
+    url: 'https://fuyun.dev',
+    siteName: 'Fuyun.dev',
+    locale: 'zh_CN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Fuyun - Tech Writer & Content Creator',
+    description: '专注于技术写作和内容创作，分享编程知识与经验',
+    creator: '@fuyun',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 }
 
 export default function RootLayout({
@@ -13,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="zh-CN">
       <body>{children}</body>
     </html>
   )
