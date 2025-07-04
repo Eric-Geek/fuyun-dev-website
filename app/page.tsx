@@ -66,43 +66,38 @@ export default function Portfolio() {
           }`}>
             <Link href="#hero" className={`text-gray-600 hover:text-black transition-all duration-300 relative group ${
               isScrolled 
-                ? 'text-sm px-3 py-1.5 rounded-full hover:bg-white/50' 
-                : 'px-4 py-2 rounded-xl hover:bg-white/30 hover:backdrop-blur-sm'
+                ? 'text-sm px-3 py-1.5 rounded-full hover:bg-gray-100' 
+                : 'px-4 py-2 rounded-xl hover:bg-gray-100'
             }`}>
-              <span className="relative z-10">首页</span>
-              {!isScrolled && <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-50/0 via-blue-50/20 to-blue-50/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>}
+              <span className="relative z-10 font-medium">首页</span>
             </Link>
             <Link href="#about" className={`text-gray-600 hover:text-black transition-all duration-300 relative group ${
               isScrolled 
-                ? 'text-sm px-3 py-1.5 rounded-full hover:bg-white/50' 
-                : 'px-4 py-2 rounded-xl hover:bg-white/30 hover:backdrop-blur-sm'
+                ? 'text-sm px-3 py-1.5 rounded-full hover:bg-gray-100' 
+                : 'px-4 py-2 rounded-xl hover:bg-gray-100'
             }`}>
-              <span className="relative z-10">关于</span>
-              {!isScrolled && <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-green-50/0 via-green-50/20 to-green-50/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>}
+              <span className="relative z-10 font-medium">关于</span>
             </Link>
             <Link href="#portfolio" className={`text-gray-600 hover:text-black transition-all duration-300 relative group ${
               isScrolled 
-                ? 'text-sm px-3 py-1.5 rounded-full hover:bg-white/50' 
-                : 'px-4 py-2 rounded-xl hover:bg-white/30 hover:backdrop-blur-sm'
+                ? 'text-sm px-3 py-1.5 rounded-full hover:bg-gray-100' 
+                : 'px-4 py-2 rounded-xl hover:bg-gray-100'
             }`}>
-              <span className="relative z-10">作品</span>
-              {!isScrolled && <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-50/0 via-purple-50/20 to-purple-50/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>}
+              <span className="relative z-10 font-medium">作品</span>
             </Link>
             <Link href="#blog" className={`text-gray-600 hover:text-black transition-all duration-300 relative group ${
               isScrolled 
-                ? 'text-sm px-3 py-1.5 rounded-full hover:bg-white/50' 
-                : 'px-4 py-2 rounded-xl hover:bg-white/30 hover:backdrop-blur-sm'
+                ? 'text-sm px-3 py-1.5 rounded-full hover:bg-gray-100' 
+                : 'px-4 py-2 rounded-xl hover:bg-gray-100'
             }`}>
-              <span className="relative z-10">文章</span>
-              {!isScrolled && <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-50/0 via-orange-50/20 to-orange-50/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>}
+              <span className="relative z-10 font-medium">文章</span>
             </Link>
             <Link href="#contact" className={`text-gray-600 hover:text-black transition-all duration-300 relative group ${
               isScrolled 
-                ? 'text-sm px-3 py-1.5 rounded-full hover:bg-white/50' 
-                : 'px-4 py-2 rounded-xl hover:bg-white/30 hover:backdrop-blur-sm'
+                ? 'text-sm px-3 py-1.5 rounded-full hover:bg-gray-100' 
+                : 'px-4 py-2 rounded-xl hover:bg-gray-100'
             }`}>
-              <span className="relative z-10">联系</span>
-              {!isScrolled && <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-pink-50/0 via-pink-50/20 to-pink-50/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>}
+              <span className="relative z-10 font-medium">联系</span>
             </Link>
           </nav>
           
@@ -112,38 +107,32 @@ export default function Portfolio() {
             <Button 
               variant="ghost" 
               size={isScrolled ? "sm" : "icon"} 
-              className={`group rounded-full transition-all duration-300 relative overflow-hidden ${
+              className={`group rounded-full transition-all duration-300 ${
                 isScrolled 
-                  ? 'w-8 h-8 p-1 hover:bg-white/50' 
-                  : 'hover:bg-white/30 hover:backdrop-blur-sm hover:scale-105'
+                  ? 'w-8 h-8 p-1 hover:bg-gray-100' 
+                  : 'hover:bg-gray-100'
               }`}
             >
-              <Moon className={`transition-all duration-300 relative z-10 ${
+              <Moon className={`transition-all duration-300 ${
                 isScrolled ? 'w-4 h-4' : 'w-5 h-5'
               }`} />
-              {!isScrolled && (
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-50/0 via-indigo-50/30 to-indigo-50/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              )}
             </Button>
             
             {/* Mobile Menu Button */}
             <Button
               variant="ghost"
               size={isScrolled ? "sm" : "icon"}
-              className={`md:hidden group rounded-full transition-all duration-300 relative overflow-hidden ${
+              className={`md:hidden group rounded-full transition-all duration-300 ${
                 isScrolled 
-                  ? 'w-8 h-8 p-1 hover:bg-white/50' 
-                  : 'hover:bg-white/30 hover:backdrop-blur-sm hover:scale-105'
+                  ? 'w-8 h-8 p-1 hover:bg-gray-100' 
+                  : 'hover:bg-gray-100'
               }`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? 
-                <X className={`transition-all duration-300 relative z-10 ${isScrolled ? 'w-4 h-4' : 'w-5 h-5'}`} /> : 
-                <Menu className={`transition-all duration-300 relative z-10 ${isScrolled ? 'w-4 h-4' : 'w-5 h-5'}`} />
+                <X className={`transition-all duration-300 ${isScrolled ? 'w-4 h-4' : 'w-5 h-5'}`} /> : 
+                <Menu className={`transition-all duration-300 ${isScrolled ? 'w-4 h-4' : 'w-5 h-5'}`} />
               }
-              {!isScrolled && (
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-50/0 via-gray-50/30 to-gray-50/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              )}
             </Button>
           </div>
         </div>
@@ -155,38 +144,38 @@ export default function Portfolio() {
               ? 'top-full left-4 right-4 rounded-2xl mt-2' 
               : 'top-full left-0 right-0 border-b border-t-0 border-l-0 border-r-0'
           }`}>
-            <nav className="px-4 py-4 space-y-4">
+            <nav className="px-4 py-4 space-y-2">
               <Link 
                 href="#hero" 
-                className="block text-gray-600 hover:text-black transition-colors py-2"
+                className="block text-gray-600 hover:text-black transition-all duration-300 py-3 px-4 rounded-xl hover:bg-gray-100 font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 首页
               </Link>
               <Link 
                 href="#about" 
-                className="block text-gray-600 hover:text-black transition-colors py-2"
+                className="block text-gray-600 hover:text-black transition-all duration-300 py-3 px-4 rounded-xl hover:bg-gray-100 font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 关于
               </Link>
               <Link 
                 href="#portfolio" 
-                className="block text-gray-600 hover:text-black transition-colors py-2"
+                className="block text-gray-600 hover:text-black transition-all duration-300 py-3 px-4 rounded-xl hover:bg-gray-100 font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 作品
               </Link>
               <Link 
                 href="#blog" 
-                className="block text-gray-600 hover:text-black transition-colors py-2"
+                className="block text-gray-600 hover:text-black transition-all duration-300 py-3 px-4 rounded-xl hover:bg-gray-100 font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 文章
               </Link>
               <Link 
                 href="#contact" 
-                className="block text-gray-600 hover:text-black transition-colors py-2"
+                className="block text-gray-600 hover:text-black transition-all duration-300 py-3 px-4 rounded-xl hover:bg-gray-100 font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 联系
