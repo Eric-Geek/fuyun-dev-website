@@ -8,13 +8,24 @@ import { Progress } from "@/components/ui/progress"
 import Image from "next/image"
 import Link from "next/link"
 import { getLatestArticles } from "@/lib/articles"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Squares from "@/components/ui/squares"
 import ProfileCard from "@/components/ProfileCard"
 
 export default function Portfolio() {
   const latestArticles = getLatestArticles(9)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  // 监听滚动事件
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
   
   return (
     <div className="min-h-screen bg-white scroll-smooth relative">
@@ -27,57 +38,122 @@ export default function Portfolio() {
         hoverFillColor="rgba(59, 130, 246, 0.1)"
       />
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-gray-100 z-50 transition-all duration-300 relative">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="#hero" className="w-10 h-10 rounded-full overflow-hidden block">
+      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out">
+        <div className={`mx-auto transition-all duration-500 ease-in-out flex items-center justify-between ${
+          isScrolled 
+            ? 'mt-4 max-w-2xl bg-white/95 backdrop-blur-xl rounded-full shadow-lg border border-white/20 px-6 py-2' 
+            : 'mt-2 max-w-6xl bg-white/70 backdrop-blur-xl rounded-2xl shadow-sm border border-white/20 px-6 py-3'
+        }`}>
+          <Link href="#hero" className={`group rounded-full overflow-hidden block transition-all duration-300 relative ${
+            isScrolled 
+              ? 'w-8 h-8 hover:scale-110' 
+              : 'w-10 h-10 hover:scale-105 hover:shadow-md'
+          }`}>
             <Image 
               src="/avatar.jpg" 
               alt="Fuyun头像" 
               width={40} 
               height={40} 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-all duration-300 group-hover:brightness-110"
             />
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </Link>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link href="#hero" className="text-gray-600 hover:text-black transition-colors">
-              首页
+          <nav className={`hidden md:flex items-center transition-all duration-300 ${
+            isScrolled ? 'space-x-2' : 'space-x-6'
+          }`}>
+            <Link href="#hero" className={`text-gray-600 hover:text-black transition-all duration-300 relative group ${
+              isScrolled 
+                ? 'text-sm px-3 py-1.5 rounded-full hover:bg-white/50' 
+                : 'px-4 py-2 rounded-xl hover:bg-white/30 hover:backdrop-blur-sm'
+            }`}>
+              <span className="relative z-10">首页</span>
+              {!isScrolled && <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-50/0 via-blue-50/20 to-blue-50/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>}
             </Link>
-            <Link href="#about" className="text-gray-600 hover:text-black transition-colors">
-              关于
+            <Link href="#about" className={`text-gray-600 hover:text-black transition-all duration-300 relative group ${
+              isScrolled 
+                ? 'text-sm px-3 py-1.5 rounded-full hover:bg-white/50' 
+                : 'px-4 py-2 rounded-xl hover:bg-white/30 hover:backdrop-blur-sm'
+            }`}>
+              <span className="relative z-10">关于</span>
+              {!isScrolled && <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-green-50/0 via-green-50/20 to-green-50/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>}
             </Link>
-            <Link href="#portfolio" className="text-gray-600 hover:text-black transition-colors">
-              作品
+            <Link href="#portfolio" className={`text-gray-600 hover:text-black transition-all duration-300 relative group ${
+              isScrolled 
+                ? 'text-sm px-3 py-1.5 rounded-full hover:bg-white/50' 
+                : 'px-4 py-2 rounded-xl hover:bg-white/30 hover:backdrop-blur-sm'
+            }`}>
+              <span className="relative z-10">作品</span>
+              {!isScrolled && <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-50/0 via-purple-50/20 to-purple-50/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>}
             </Link>
-            <Link href="#blog" className="text-gray-600 hover:text-black transition-colors">
-              文章
+            <Link href="#blog" className={`text-gray-600 hover:text-black transition-all duration-300 relative group ${
+              isScrolled 
+                ? 'text-sm px-3 py-1.5 rounded-full hover:bg-white/50' 
+                : 'px-4 py-2 rounded-xl hover:bg-white/30 hover:backdrop-blur-sm'
+            }`}>
+              <span className="relative z-10">文章</span>
+              {!isScrolled && <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-50/0 via-orange-50/20 to-orange-50/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>}
             </Link>
-            <Link href="#contact" className="text-gray-600 hover:text-black transition-colors">
-              联系
+            <Link href="#contact" className={`text-gray-600 hover:text-black transition-all duration-300 relative group ${
+              isScrolled 
+                ? 'text-sm px-3 py-1.5 rounded-full hover:bg-white/50' 
+                : 'px-4 py-2 rounded-xl hover:bg-white/30 hover:backdrop-blur-sm'
+            }`}>
+              <span className="relative z-10">联系</span>
+              {!isScrolled && <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-pink-50/0 via-pink-50/20 to-pink-50/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>}
             </Link>
           </nav>
           
-          <div className="flex items-center space-x-2">
-            <Button variant="ghost" size="icon" className="rounded-full">
-              <Moon className="w-5 h-5" />
+          <div className={`flex items-center transition-all duration-300 ${
+            isScrolled ? 'space-x-1' : 'space-x-3'
+          }`}>
+            <Button 
+              variant="ghost" 
+              size={isScrolled ? "sm" : "icon"} 
+              className={`group rounded-full transition-all duration-300 relative overflow-hidden ${
+                isScrolled 
+                  ? 'w-8 h-8 p-1 hover:bg-white/50' 
+                  : 'hover:bg-white/30 hover:backdrop-blur-sm hover:scale-105'
+              }`}
+            >
+              <Moon className={`transition-all duration-300 relative z-10 ${
+                isScrolled ? 'w-4 h-4' : 'w-5 h-5'
+              }`} />
+              {!isScrolled && (
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-50/0 via-indigo-50/30 to-indigo-50/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              )}
             </Button>
             
             {/* Mobile Menu Button */}
             <Button
               variant="ghost"
-              size="icon"
-              className="md:hidden rounded-full"
+              size={isScrolled ? "sm" : "icon"}
+              className={`md:hidden group rounded-full transition-all duration-300 relative overflow-hidden ${
+                isScrolled 
+                  ? 'w-8 h-8 p-1 hover:bg-white/50' 
+                  : 'hover:bg-white/30 hover:backdrop-blur-sm hover:scale-105'
+              }`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? 
+                <X className={`transition-all duration-300 relative z-10 ${isScrolled ? 'w-4 h-4' : 'w-5 h-5'}`} /> : 
+                <Menu className={`transition-all duration-300 relative z-10 ${isScrolled ? 'w-4 h-4' : 'w-5 h-5'}`} />
+              }
+              {!isScrolled && (
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-50/0 via-gray-50/30 to-gray-50/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              )}
             </Button>
           </div>
         </div>
         
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-lg z-40">
+          <div className={`md:hidden absolute bg-white/95 backdrop-blur-md border border-gray-200/50 shadow-lg z-40 transition-all duration-300 ${
+            isScrolled 
+              ? 'top-full left-4 right-4 rounded-2xl mt-2' 
+              : 'top-full left-0 right-0 border-b border-t-0 border-l-0 border-r-0'
+          }`}>
             <nav className="px-4 py-4 space-y-4">
               <Link 
                 href="#hero" 
