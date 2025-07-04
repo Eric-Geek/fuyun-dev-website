@@ -304,128 +304,48 @@ export default function Portfolio() {
         <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12">个人作品</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           <Card className="group cursor-pointer hover:shadow-lg transition-shadow">
-            <CardContent className="p-0">
-              <div className="aspect-video bg-gray-100 rounded-t-lg overflow-hidden">
-                <Image
-                  src="/placeholder.svg?height=200&width=300"
-                  alt="Fuyun.dev"
-                  width={300}
-                  height={200}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="font-semibold mb-2">Fuyun.dev</h3>
-                <p className="text-sm text-gray-600 mb-4">基于Next.js搭建的技术博客</p>
-                <div className="flex items-center space-x-4 text-sm">
-                  <span className="text-blue-600">Next.js</span>
-                  <span className="text-green-600">TypeScript</span>
-                  <span className="text-purple-600">Tailwind CSS</span>
+            <a href="https://fuyun.dev" target="_blank" rel="noopener noreferrer">
+              <CardContent className="p-0">
+                <div className="aspect-video bg-gray-100 rounded-t-lg overflow-hidden">
+                  <Image
+                    src="/fuyun-dev-screenshot.png"
+                    alt="Fuyun.dev"
+                    width={300}
+                    height={200}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="group cursor-pointer hover:shadow-lg transition-shadow">
-            <CardContent className="p-0">
-              <div className="aspect-video bg-gray-900 rounded-t-lg overflow-hidden flex items-center justify-center">
-                <div className="text-white text-center">
-                  <h3 className="text-2xl font-bold mb-2">Tech Docs</h3>
-                  <p className="text-sm opacity-75">技术文档模板库</p>
+                <div className="p-6">
+                  <h3 className="font-semibold mb-2">Fuyun.dev</h3>
+                  <p className="text-sm text-gray-600 mb-4">基于Next.js和Tailwind CSS搭建的个人技术博客和作品集网站。</p>
+                  <div className="flex items-center space-x-4 text-sm">
+                    <span className="text-blue-600">Next.js</span>
+                    <span className="text-green-600">TypeScript</span>
+                    <span className="text-purple-600">Tailwind CSS</span>
+                  </div>
                 </div>
-              </div>
-              <div className="p-6">
-                <h3 className="font-semibold mb-2">Tech Docs</h3>
-                <p className="text-sm text-gray-600 mb-4">现代化技术文档模板和写作指南</p>
-                <div className="flex items-center space-x-4 text-sm">
-                  <span className="text-blue-600">Markdown</span>
-                  <span className="text-green-600">VitePress</span>
-                  <span className="text-purple-600">Writing</span>
-                </div>
-              </div>
-            </CardContent>
+              </CardContent>
+            </a>
           </Card>
 
           <Card className="group cursor-pointer hover:shadow-lg transition-shadow">
             <CardContent className="p-0">
               <div className="aspect-video bg-gray-100 rounded-t-lg overflow-hidden">
                 <Image
-                  src="/placeholder.svg?height=200&width=300"
-                  alt="BrowseBase"
+                  src="/geektech-screenshot.png"
+                  alt="极客科技GeekTech公众号"
                   width={300}
                   height={200}
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-6">
-                <h3 className="font-semibold mb-2">BrowseBase</h3>
-                <p className="text-sm text-gray-600 mb-4">在线收藏夹网站</p>
+                <h3 className="font-semibold mb-2">微信公众号：极客科技GeekTech</h3>
+                <p className="text-sm text-gray-600 mb-4">分享前沿科技、AI工具和实用技术教程，聚焦极客精神和技术创新。</p>
                 <div className="flex items-center space-x-4 text-sm">
-                  <span className="text-blue-600">TypeScript</span>
-                  <span className="text-green-600">React</span>
-                  <span className="text-purple-600">Supabase</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="group cursor-pointer hover:shadow-lg transition-shadow">
-            <CardContent className="p-0">
-              <div className="aspect-video bg-gray-100 rounded-t-lg overflow-hidden">
-                <Image
-                  src="/placeholder.svg?height=200&width=300"
-                  alt="Content Studio"
-                  width={300}
-                  height={200}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="font-semibold mb-2">Content Studio</h3>
-                <p className="text-sm text-gray-600 mb-4">技术内容创作与管理平台</p>
-                <div className="flex items-center space-x-4 text-sm">
-                  <span className="text-blue-600">React</span>
-                  <span className="text-green-600">TypeScript</span>
-                  <span className="text-purple-600">CMS</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="group cursor-pointer hover:shadow-lg transition-shadow">
-            <CardContent className="p-0">
-              <div className="aspect-video bg-gray-900 rounded-t-lg overflow-hidden flex items-center justify-center">
-                <div className="text-white text-center">
-                  <h3 className="text-2xl font-bold mb-2">GO SEARCH</h3>
-                  <p className="text-sm opacity-75">搜索引擎聚合</p>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="font-semibold mb-2">GO Search</h3>
-                <p className="text-sm text-gray-600 mb-4">搜索引擎聚合</p>
-                <div className="flex items-center space-x-4 text-sm">
-                  <span className="text-blue-600">Go</span>
-                  <span className="text-green-600">Cobra</span>
-                  <span className="text-purple-600">CLI</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="group cursor-pointer hover:shadow-lg transition-shadow">
-            <CardContent className="p-0">
-              <div className="aspect-video bg-gray-900 rounded-t-lg overflow-hidden flex items-center justify-center">
-                <div className="text-white text-center">
-                  <h3 className="text-xl font-bold mb-2">实战</h3>
-                  <p className="text-sm opacity-75">一个学习编程的网站</p>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="font-semibold mb-2">实战</h3>
-                <p className="text-sm text-gray-600 mb-4">一个学习编程的网站</p>
-                <div className="flex items-center space-x-4 text-sm">
-                  <span className="text-blue-600">React</span>
-                  <span className="text-green-600">TypeScript CSS</span>
+                  <span className="text-blue-600">公众号</span>
+                  <span className="text-green-600">AI</span>
+                  <span className="text-purple-600">Geek</span>
                 </div>
               </div>
             </CardContent>
