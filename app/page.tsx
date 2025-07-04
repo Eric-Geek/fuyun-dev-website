@@ -11,6 +11,7 @@ import { getLatestArticles } from "@/lib/articles"
 import { useState, useEffect } from "react"
 import Squares from "@/components/ui/squares"
 import ProfileCard from "@/components/ProfileCard"
+import StarBorder from "@/components/StarBorder"
 
 export default function Portfolio() {
   const latestArticles = getLatestArticles(9)
@@ -199,9 +200,17 @@ export default function Portfolio() {
       <section id="hero" className="max-w-6xl mx-auto px-4 pt-24 md:pt-32 pb-12 md:pb-20 relative z-10">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 lg:gap-20">
           <div className="flex-1 max-w-2xl">
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-              <span className="text-sm text-gray-600">你好，我是</span>
+            <div className="mb-6">
+              <StarBorder
+                color="#6b7280"
+                speed="6s"
+                className="inline-block"
+              >
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                  <span>你好，我是</span>
+                </div>
+              </StarBorder>
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">Fuyun</h1>
             <h2 className="text-xl md:text-2xl text-gray-600 mb-6 md:mb-8">Tech Writer</h2>
