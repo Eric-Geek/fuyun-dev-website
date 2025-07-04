@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   creator: 'Fuyun',
   publisher: 'Fuyun',
   metadataBase: new URL('https://fuyun.dev'),
+  icons: {
+    icon: '/avatar.jpg',
+    shortcut: '/avatar.jpg',
+    apple: '/avatar.jpg',
+  },
   openGraph: {
     title: 'Fuyun - Tech Writer & Content Creator',
     description: '专注于技术写作和内容创作，分享编程知识与经验',
@@ -16,12 +21,21 @@ export const metadata: Metadata = {
     siteName: 'Fuyun.dev',
     locale: 'zh_CN',
     type: 'website',
+    images: [
+      {
+        url: '/avatar.jpg',
+        width: 800,
+        height: 800,
+        alt: 'Fuyun - Tech Writer',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Fuyun - Tech Writer & Content Creator',
     description: '专注于技术写作和内容创作，分享编程知识与经验',
     creator: '@fuyun',
+    images: ['/avatar.jpg'],
   },
   robots: {
     index: true,
