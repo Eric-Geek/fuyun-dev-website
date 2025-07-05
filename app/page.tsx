@@ -10,7 +10,7 @@ import Link from "next/link"
 import { getLatestArticles } from "@/lib/articles"
 import { useState, useEffect } from "react"
 import Squares from "@/components/ui/squares"
-import ProfileCard from "@/components/ProfileCard"
+import Orb from '@/components/Orb'
 import StarBorder from "@/components/StarBorder"
 import FlowingMenu from "@/components/FlowingMenu"
 
@@ -247,22 +247,15 @@ export default function Portfolio() {
             </div>
           </div>
           <div className="flex justify-center lg:justify-end">
-            <ProfileCard
-              name="Fuyun"
-              title="Tech Writer"
-              handle="fuyun"
-              status="正在创作中"
-              contactText="联系我"
-              avatarUrl="/avatar.jpg"
-              showUserInfo={true}
-              enableTilt={true}
-              onContactClick={() => {
-                const contactSection = document.getElementById('contact');
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            />
+            <div className="w-[400px] h-[400px]">
+              <Orb
+                avatarUrl="/avatar.jpg"
+                hoverIntensity={0.5}
+                rotationMode="auto"
+                hue={0.7}
+                forceHoverState={false}
+              />
+            </div>
           </div>
         </div>
       </section>
