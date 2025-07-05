@@ -12,11 +12,28 @@ import { useState, useEffect } from "react"
 import Squares from "@/components/ui/squares"
 import ProfileCard from "@/components/ProfileCard"
 import StarBorder from "@/components/StarBorder"
+import FlowingMenu from "@/components/FlowingMenu"
 
 export default function Portfolio() {
   const latestArticles = getLatestArticles(9)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+
+  // 流动菜单数据 - 技术栈
+  const menuItems = [
+    { link: '#', text: 'Github', image: '/icons/github.svg' },
+    { link: '#', text: 'Cloudflare', image: '/icons/cloudflare.svg' },
+    { link: '#', text: 'Cursor', image: '/icons/cursor.svg' },
+    { link: '#', text: 'Claude', image: '/icons/claude.svg' },
+    { link: '#', text: 'V0', image: '/icons/v0.svg' },
+    { link: '#', text: 'Figma', image: '/icons/figma.svg' },
+    { link: '#', text: 'Canva', image: '/icons/canva.svg' },
+    { link: '#', text: 'Midjourney', image: '/icons/midjourney.svg' },
+    { link: '#', text: 'Gemini', image: '/icons/gemini.svg' },
+    { link: '#', text: 'ChatGPT', image: '/icons/chatgpt.svg' },
+    { link: '#', text: 'Dia', image: '/icons/dia.svg' },
+    { link: '#', text: 'GlobalGPT', image: '/icons/globalgpt.svg' },
+  ]
 
   // 监听滚动事件
   useEffect(() => {
@@ -248,6 +265,11 @@ export default function Portfolio() {
             />
           </div>
         </div>
+      </section>
+
+      {/* Tech Stack Menu Section */}
+      <section className="max-w-full mx-auto py-4 relative z-10">
+        <FlowingMenu items={menuItems} />
       </section>
 
       {/* About Section */}
